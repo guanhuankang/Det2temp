@@ -1,0 +1,6 @@
+_BASE_: "base.yaml"
+MODEL:
+    MASK_ON: true
+    RESNETS:
+        DEPTH: 50
+        OUT_FEATURES: ["res2", "res3", "res4", "res5"]
