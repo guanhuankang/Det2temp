@@ -1,6 +1,16 @@
 from detectron2.config import CfgNode as CN
+from .toy import add_toy_config
+# from .detr import add_detr_config
 
-def add_custom_config(cfg):
+def add_project_config(cfg):
+    cfg = add_global_config(cfg)
+    
+    cfg = add_toy_config(cfg)
+    # cfg = add_detr_config(cfg)
+    
+    return cfg
+
+def add_global_config(cfg):
     cfg.MODEL.WEIGHTS = ""
     
     cfg.DATASETS.ROOT = "assets"
@@ -16,3 +26,4 @@ def add_custom_config(cfg):
     
     cfg.INPUT.TRAIN_RESOLUTION = 800
     cfg.INPUT.TEST_RESOLUTION = 800
+    return cfg
